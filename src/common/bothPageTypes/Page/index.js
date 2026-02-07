@@ -3,12 +3,9 @@ import { Header } from "../Header";
 import { Content } from "./Content";
 
 export const Page = ({ title, status, children }) => (
-  <>
-    {title && (
-      <Container>
-        <Header as="h1">{title}</Header>
-      </Container>
-    )}
+  <Container>
+    {title && <Header as="h1">{title}</Header>}
     <Content status={status}>{children}</Content>
-  </>
+  </Container>
 );
+
