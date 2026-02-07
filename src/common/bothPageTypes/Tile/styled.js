@@ -12,8 +12,8 @@ export const Wrapper = styled.article`
   grid-gap: 0 40px;
   border-radius: 5px;
 
-  ${({ small }) =>
-    !small &&
+  ${({ $small }) =>
+    !$small &&
     css`
       align-items: start;
       margin-top: 56px;
@@ -25,15 +25,15 @@ export const Wrapper = styled.article`
         padding: 24px;
       }
 
-      @media (max-width: ${({ tmeme }) => theme.breakpoints.mobileMax}px) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         grid-template-columns: 114px 1fr;
         padding: 16px;
         grid-gap: 8px 16px;
       }
     `}
 
-  ${({ small }) =>
-    small &&
+  ${({ $small }) =>
+    $small &&
     css`
       grid-template-areas: "picture" "meta";
       grid-template-columns: 1fr;
@@ -46,8 +46,8 @@ export const Wrapper = styled.article`
       }
     `}
 
-${({ twoColumnsOnMobile }) =>
-    twoColumnsOnMobile &&
+  ${({ $twoColumnsOnMobile }) =>
+    $twoColumnsOnMobile &&
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         grid-template-columns: 114px 1fr;
@@ -55,31 +55,33 @@ ${({ twoColumnsOnMobile }) =>
         grid-template-rows: auto;
         padding: 16px;
       }
-    `};
+    `}
 
-  ${({ center }) =>
-    center &&
+  ${({ $center }) =>
+    $center &&
     css`
       text-align: center;
-    `};
+    `}
 `;
+
 
 export const Image = styled.div`
   padding-top: calc(100% * 632 / 421);
-  background: url("{({url}) => url}");
+  background-image: url(${({ $url }) => $url});
   background-size: cover;
   background-position: center;
   border-radius: 5px;
   grid-area: picture;
 
-  ${({ noImage }) =>
-    noImage &&
+  ${({ $noImage }) =>
+    $noImage &&
     css`
       background-color: ${({ theme }) => theme.colors.silver};
       background-size: 32%;
       background-repeat: no-repeat;
     `}
 `;
+
 
 export const Title = styled.header`
   font-weight: 600;
@@ -91,8 +93,8 @@ export const Title = styled.header`
     font-weight: 500;
   }
 
-  ${({ small }) =>
-    small &&
+  ${({ $small }) =>
+    $small &&
     css`
       font-weight: 500;
       font-size: 20px;
@@ -120,8 +122,8 @@ export const SubTitle = styled.p`
     margin-top: 8px;
   }
 
-  ${({ small }) =>
-    small &&
+  ${({ $small }) =>
+    $small &&
     css`
       margin-top: 8px;
       font-size: 18px;
@@ -155,8 +157,8 @@ export const ContentWrapper = styled.div`
   grid-template-columns: 1fr;
   align-content: start;
 
-  ${({ stretchVertically }) =>
-    stretchVertically &&
+  ${({ $stretchVertically }) =>
+    $stretchVertically &&
     css`
       align-content: stretch;
 

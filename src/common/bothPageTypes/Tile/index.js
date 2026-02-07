@@ -14,7 +14,7 @@ export const Tile = ({
   image,
   imagePlaceholder,
   title,
-  subitle,
+  subtitle,
   metaData,
   hideMetaDataKeysOnMobile,
   tags,
@@ -26,26 +26,34 @@ export const Tile = ({
   stretchVertically,
 }) => (
   <Wrapper
-    small={small}
-    center={center}
-    twoColumnsOnMobile={twoColumnsOnMobile}
+    $small={small}
+    $center={center}
+    $twoColumnsOnMobile={twoColumnsOnMobile}
   >
-    <Image url={image || imagePlaceholder} noImage={image} />
-    <ContentWrapper stretchVertically={stretchVertically}>
-      <div>
-        <Title small={small}>{title}</Title>
+    <Image
+      $url={image || imagePlaceholder}
+      $noImage={!image && !imagePlaceholder}
+    />
 
-        {!!subitle && (<SubTitle small={small}>{subitle}</SubTitle>)}
+    <ContentWrapper $stretchVertically={stretchVertically}>
+      <div>
+        <Title $small={small}>{title}</Title>
+
+        {!!subtitle && (
+          <SubTitle $small={small}>{subtitle}</SubTitle>
+        )}
 
         <MetaData
           metaData={metaData}
           hideMetaDataKeysOnMobile={hideMetaDataKeysOnMobile}
         />
+
         <Tags tags={tags} small={small} />
       </div>
 
       <Vote small={small} vote={vote} />
     </ContentWrapper>
-    {!!description && (<Description>{description}</Description>)}
+
+    {description?.trim() && <Description>{description}</Description>}
   </Wrapper>
 );
