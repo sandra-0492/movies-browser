@@ -1,17 +1,24 @@
-import { useHistory, useLocation } from "react-router-dom";
+import { useCallback } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { buildQueryString } from "../../bothPageTypes/buildQueryString";
 
 export const useGoToPage = () => {
+  const navigate = useNavigate();
   const location = useLocation();
-  const history = useHistory();
 
-  return (page) => {
-    history.push({
-      pathname: location.pathname,
-      search: buildQueryString(
-        { page: page === 1 ? undefined : page },
-        location.search,
-      ),
-    });
-  };
+  return useCallback(
+    (page) => {
+      const normalizedPage =
+        typeof page === "number" && page > 1 ? page : 1;
+
+      navigate({
+        pathname: location.pathname,
+        search: buildQueryString(
+          { page: normalizedPage === 1 ? undefined : normalizedPage },
+          location.search
+        ),
+      });
+    },
+    [navigate, location.pathname, location.search]
+  );
 };
