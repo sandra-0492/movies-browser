@@ -44,14 +44,14 @@ export function MovieDetails() {
         {movie.cast?.length > 0 && (
           <>
             <Header as="h2">Cast ({movie.cast.length})</Header>
-            <People people={movie.cast} showCharacter />
+            <People people={movie.cast} showCharacter prefix="cast" />
           </>
         )}
 
         {movie.crew?.length > 0 && (
           <>
             <Header as="h2">Crew ({movie.crew.length})</Header>
-            <People people={movie.crew} showJob />
+            <People people={movie.crew} showJob prefix="crew" />
           </>
         )}
       </Container>
