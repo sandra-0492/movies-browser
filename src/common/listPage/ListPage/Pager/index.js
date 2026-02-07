@@ -12,21 +12,32 @@ import {
 export const Pager = ({ page, totalPages }) => {
   const goToPage = useGoToPage();
 
+  if (!page || !totalPages) {
+    return null;
+  }
+
   const isFirstPage = page === 1;
   const isLastPage = page === totalPages;
 
   return (
     <Wrapper>
-      <Button disabled={isFirstPage} onClick={() => goToPage(1)}>
+      <Button
+        disabled={isFirstPage}
+        onClick={() => !isFirstPage && goToPage(1)}
+      >
         <Arrows>
-          <StyledArrow left />
-          <StyledArrow left />
+          <StyledArrow $left />
+          <StyledArrow $left />
         </Arrows>
         <LinkText>First</LinkText>
       </Button>
-      <Button disabled={isFirstPage} onClick={() => goToPage(page - 1)}>
+
+      <Button
+        disabled={isFirstPage}
+        onClick={() => !isFirstPage && goToPage(page - 1)}
+      >
         <Arrows>
-          <StyledArrow left />
+          <StyledArrow $left />
         </Arrows>
         <LinkText>Previous</LinkText>
       </Button>
@@ -35,14 +46,21 @@ export const Pager = ({ page, totalPages }) => {
         Page <Strong>{page}</Strong> of <Strong>{totalPages}</Strong>
       </Text>
 
-      <Button disabled={isLasttPage} onClick={() => goToPage(page + 1)}>
+      <Button
+        disabled={isLastPage}
+        onClick={() => !isLastPage && goToPage(page + 1)}
+      >
         <LinkText>Next</LinkText>
         <Arrows>
           <StyledArrow />
         </Arrows>
       </Button>
-      <Button disabled={isLastPage} onClick={() => goToPage(totalPages)}>
-        <LinkText>last</LinkText>
+
+      <Button
+        disabled={isLastPage}
+        onClick={() => !isLastPage && goToPage(totalPages)}
+      >
+        <LinkText>Last</LinkText>
         <Arrows>
           <StyledArrow />
           <StyledArrow />

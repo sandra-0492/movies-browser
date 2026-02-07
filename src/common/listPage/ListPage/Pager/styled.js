@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as Arrow } from "./arrow.svg";
 
 export const Wrapper = styled.div`
@@ -23,17 +23,16 @@ export const Button = styled.button`
   padding: 8px 16px;
   border-radius: 5px;
   color: ${({ theme }) => theme.colors.codGray};
+  background: ${({ theme }) => theme.colors.patternsBlue};
   transition: filter 0.3s;
   cursor: pointer;
-  background: ${({ theme }) => theme.colors.patternsBlue};
 
-  &:hover {
+  &:hover:not(:disabled) {
     filter: brightness(90%);
   }
 
   &:disabled {
     cursor: not-allowed;
-    filter: unset;
     background: ${({ theme }) => theme.colors.mystic};
   }
 
@@ -55,17 +54,18 @@ export const Arrows = styled.span`
 `;
 
 export const StyledArrow = styled(Arrow)`
+  fill: currentColor;
   margin: 0 ${arrowsGap / 2}px;
   color: ${({ theme }) => theme.colors.sceniceBlue};
   width: auto;
 
-  ${({ left }) =>
-    left &&
+  ${({ $left }) =>
+    $left &&
     css`
       transform: rotate(180deg);
     `}
 
-  *:disabled & {
+  button:disabled & {
     color: ${({ theme }) => theme.colors.waterloo};
   }
 
@@ -75,7 +75,7 @@ export const StyledArrow = styled(Arrow)`
 `;
 
 export const LinkText = styled.span`
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobilelMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: none;
   }
 `;
