@@ -1,4 +1,4 @@
-import { fetchFromAPI } from "../../common/bothPageTypes/TMDb/fetchfromAPI";
+import { fetchFromAPI } from "../../common/bothPageTypes/TMDb/fetchFromAPI";
 
 export const getPopularPeople = ({ page }) =>
   fetchFromAPI({
