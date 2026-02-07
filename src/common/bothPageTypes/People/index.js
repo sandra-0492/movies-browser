@@ -8,25 +8,15 @@ export const People = ({ people, showJob, showCharacter }) => {
   return (
     <TileList>
       {people.map((person) => (
-        <TileListLink
-          key={`${person.id}-${person.job}-${person.character}`}
-          to={toPersonDetails(person.id)}
-        >
+        <TileListLink key={person.id} to={toPersonDetails(person.id)}>
           <Tile
             title={person.name}
-            small
+            $small
             center
-            image={getImageUrl({
-              path: person.profile_path,
-              size: "medium",
-            })}
+            image={getImageUrl({ path: person.profile_path, size: "medium" }) || personPlaceholder}
             imagePlaceholder={personPlaceholder}
             subtitle={
-              showJob
-                ? person.job
-                : showCharacter
-                  ? person.character
-                  : undefined
+              showJob ? person.job : showCharacter ? person.character : ""
             }
           />
         </TileListLink>
