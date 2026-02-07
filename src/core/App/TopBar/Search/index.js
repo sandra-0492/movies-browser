@@ -23,11 +23,11 @@ export const Search = () => {
     <Label>
       <SearchIcon />
       <Input
+        value={inputValue}
+        placeholder={`Search for ${isSearchForPeople ? "people" : "movies"}...`}
         onChange={({ target: { value } }) =>
           onSearchInputChange({ newValue: value, isSearchForPeople })
         }
-        value={inputValue}
-        placeholder={`Search for ${isSearchForPeople ? "people" : "movies"}...`}
       />
     </Label>
   );
