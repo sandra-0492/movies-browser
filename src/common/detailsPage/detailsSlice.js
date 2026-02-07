@@ -9,16 +9,12 @@ export const createDetailsSlice = ({ name }) => {
     name,
     initialState,
     reducers: {
-      fetchError: () => ({
-        status: "error",
-      }),
+      fetchError: () => initialState,
       fetchSuccess: (_, { payload }) => ({
         status: "success",
         details: payload,
       }),
-      fetch: () => ({
-        status: "loading",
-      }),
+      fetch: () => ({ status: "loading" }),
       clear: () => initialState,
     },
   });
@@ -26,7 +22,7 @@ export const createDetailsSlice = ({ name }) => {
   return {
     reducer: slice.reducer,
     actions: slice.actions,
-    selectros: {
+    selectors: {
       selectDetails: (state) => state[name].details,
       selectStatus: (state) => state[name].status,
     },
