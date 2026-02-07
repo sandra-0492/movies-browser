@@ -24,8 +24,8 @@ export const Wrapper = styled.p`
     margin: 16px;
   }
 
-  ${({ backdrop }) =>
-    backdrop &&
+  ${({ $backdrop }) =>
+    $backdrop &&
     css`
       color: ${({ theme }) => theme.colors.white};
       margin-bottom: 56px;
@@ -45,8 +45,8 @@ export const Star = styled(StarIcon)`
     height: 14px;
   }
 
-  ${({ backdrop }) =>
-    backdrop &&
+  ${({ $backdrop }) =>
+    $backdrop &&
     css`
       height: 35px;
     `}
@@ -71,8 +71,8 @@ export const Average = styled.strong`
       font-size: 16px;
     `}
 
-  ${({ backdrop }) =>
-    backdrop &&
+  ${({ $backdrop }) =>
+    $backdrop &&
     css`
       font-size: 30px;
     `}
@@ -91,8 +91,8 @@ export const Average = styled.strong`
 export const OutOf = styled.span`
   margin-left: 8px;
 
-  ${({ backdrop }) =>
-    !backdrop &&
+  ${({ $backdrop }) =>
+    $backdrop &&
     css`
       @media (max-width: ${({ theme }) =>
           theme.breakpoints.mobileVerticalMax}px) {
@@ -100,8 +100,8 @@ export const OutOf = styled.span`
       }
     `};
 
-  ${({ backdrop }) =>
-    backdrop &&
+  ${({ $backdrop }) =>
+    $backdrop &&
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 10px;
@@ -131,8 +131,8 @@ export const Count = styled.span`
       font-size: 16px;
     `}
 
-  ${({ backdrop }) =>
-    backdrop &&
+  ${({ $backdrop }) =>
+    $backdrop &&
     css`
       width: 100%;
       margin-left: 0;

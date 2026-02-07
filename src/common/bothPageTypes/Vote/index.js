@@ -7,21 +7,21 @@ export const Vote = ({ vote, small, backdrop }) => {
   const hasCount = vote.count != null;
 
   return (
-    <Wrapper $small={small} backdrop={backdrop}>
-      <Star backdrop={backdrop} hidden={!hasAverage} />
+    <Wrapper $small={small} $backdrop={backdrop}>
+      <Star $backdrop={backdrop} $hidden={!hasAverage} />
 
       {hasAverage && (
         <>
-          <Average $small={small} backdrop={backdrop}>
+          <Average $small={small} $backdrop={backdrop}>
             {vote.average.toFixed(1)}
           </Average>
-          <OutOf hidden={small} backdrop={backdrop}>
+          <OutOf $hidden={small} $backdrop={backdrop}>
             /10
           </OutOf>
         </>
       )}
 
-      <Count $small={small} backdrop={backdrop} $noVotes={!hasCount}>
+      <Count $small={small} $backdrop={backdrop} $noVotes={!hasCount}>
         {hasCount
           ? `${vote.count} ${vote.count === 1 ? "vote" : "votes"}`
           : "no votes yet"}
