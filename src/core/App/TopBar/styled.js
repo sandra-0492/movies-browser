@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { reactComponent as Logo } from "./logo.svg";
+import { ReactComponent as Logo } from "./logo.svg";
 
 export const Wrapper = styled.div`
   color: ${({ theme }) => theme.colors.white};
@@ -32,11 +32,16 @@ export const Grid = styled.div`
   }
 `;
 
-export const main = styled.div`
+export const Main = styled.div`
   display: flex;
 `;
 
-export const LogoLink = styled(Logo)`
+export const LogoLink = styled(Link)`
+  display: flex;
+  align-items: center;
+`;
+
+export const LogoImage = styled(Logo)`
   height: 25px;
   width: auto;
 
@@ -49,7 +54,7 @@ export const LogoLink = styled(Logo)`
   }
 `;
 
-export const Logotext = styled.header`
+export const LogoText = styled.header`
   font-weight: 500;
   font-size: 24px;
   margin-left: 16px;
@@ -90,7 +95,7 @@ export const LinkItem = styled.li`
   margin-left: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin-left: 4x;
+    margin-left: 4px;
   }
 `;
 

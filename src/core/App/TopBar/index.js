@@ -9,8 +9,8 @@ import {
   LogoLink,
   LogoText,
   Main,
-  StyledLink,
   Wrapper,
+  StyledLink,
 } from "./styled";
 
 export const TopBar = () => (
@@ -22,15 +22,19 @@ export const TopBar = () => (
             <LogoImage />
             <LogoText>Movies Browser</LogoText>
           </LogoLink>
+
           <nav>
             <Links>
               <LinkItem>
                 <StyledLink to={toMovies()}>Movies</StyledLink>
               </LinkItem>
-              <LinkItem to={toPeople()}>People</LinkItem>
+              <LinkItem>
+                <StyledLink to={toPeople()}>People</StyledLink>
+              </LinkItem>
             </Links>
           </nav>
         </Main>
+
         <Search />
       </Grid>
     </Container>
