@@ -17,7 +17,10 @@ const store = configureStore({
     personList: personListReducer,
     genres: genresReducer,
   },
-  middleware: [sagaMiddleware],
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
 });
 
 sagaMiddleware.run(saga);
+
+export default store;
