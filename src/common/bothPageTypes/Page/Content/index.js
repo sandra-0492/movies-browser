@@ -10,12 +10,12 @@ export const Content = ({ status, children }) => {
       return <Error />;
 
     case "success":
-      return children;
+      return <>{children}</>;
 
     case "initial":
-      return null;
+      return null; // brak renderowania przed rozpoczęciem ładowania
 
     default:
-      throw new Error("incorrect status");
+      throw new Error(`Content received incorrect status: ${status}`);
   }
 };
