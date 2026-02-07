@@ -1,13 +1,18 @@
 import { Average, Count, OutOf, Star, Wrapper } from "./styled";
 
-export const Vote = ({ vote, small, backdrop }) =>
-  !!vote && (
-    <Wrapper small={small} backdrop={backdrop}>
-      <Star backdrop={backdrop} hidden={!vote?.average} />
+export const Vote = ({ vote, small, backdrop }) => {
+  if (!vote) return null;
 
-      {!!vote?.average && (
+  const hasAverage = vote.average != null;
+  const hasCount = vote.count != null;
+
+  return (
+    <Wrapper $small={small} backdrop={backdrop}>
+      <Star backdrop={backdrop} hidden={!hasAverage} />
+
+      {hasAverage && (
         <>
-          <Average small={small} backdrop={backdrop}>
+          <Average $small={small} backdrop={backdrop}>
             {vote.average.toFixed(1)}
           </Average>
           <OutOf hidden={small} backdrop={backdrop}>
@@ -16,10 +21,11 @@ export const Vote = ({ vote, small, backdrop }) =>
         </>
       )}
 
-      <Count small={small} backdrop={backdrop} noVotes={!vote?.count}>
-        {vote?.count
+      <Count $small={small} backdrop={backdrop} $noVotes={!hasCount}>
+        {hasCount
           ? `${vote.count} ${vote.count === 1 ? "vote" : "votes"}`
           : "no votes yet"}
       </Count>
     </Wrapper>
   );
+};

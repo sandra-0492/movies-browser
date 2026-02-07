@@ -8,8 +8,8 @@ export const Wrapper = styled.p`
   align-items: center;
   font-size: 14px;
 
-  ${({ small }) =>
-    small &&
+  ${({ $small }) =>
+    $small &&
     css`
       margin: 16px 0 0 0;
       margin-top: 12px;
@@ -21,7 +21,7 @@ export const Wrapper = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileVerticalMax}px) {
-    margin: 162px;
+    margin: 16px;
   }
 
   ${({ backdrop }) =>
@@ -65,28 +65,27 @@ export const Average = styled.strong`
   font-weight: 500;
   margin-left: 8px;
 
-  ${({ small }) =>
-    small &&
+  ${({ $small }) =>
+    $small &&
     css`
       font-size: 16px;
     `}
-
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileVerticalMax}px) {
-    font-size: 13px;
-    font-weight: 600;
-  }
 
   ${({ backdrop }) =>
     backdrop &&
     css`
       font-size: 30px;
-    }
+    `}
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin-left: 4px;
     font-size: 13px;
   }
-`}
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileVerticalMax}px) {
+    font-size: 13px;
+    font-weight: 600;
+  }
 `;
 
 export const OutOf = styled.span`
@@ -114,8 +113,8 @@ export const OutOf = styled.span`
 export const Count = styled.span`
   margin-left: 8px;
 
-  ${({ noVotes }) =>
-    noVotes &&
+  ${({ $noVotes }) =>
+    $noVotes &&
     css`
       margin-left: 0;
     `}
@@ -125,8 +124,8 @@ export const Count = styled.span`
     font-size: 13px;
   }
 
-  ${({ small }) =>
-    small &&
+  ${({ $small }) =>
+    $small &&
     css`
       color: ${({ theme }) => theme.colors.waterloo};
       font-size: 16px;
