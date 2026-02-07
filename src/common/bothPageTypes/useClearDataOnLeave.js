@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-export const useCleardataOnLeave = ({ clearAction }) => {
+export const useClearDataOnLeave = ({ clearAction }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    return () => dispatch(clearAction());
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => {
+      if (clearAction) {
+        dispatch(clearAction());
+      }
+    };
+  }, [dispatch, clearAction]);
 };
