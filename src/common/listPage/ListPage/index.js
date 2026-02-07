@@ -10,27 +10,33 @@ import { useClearDataOnLeave } from "../../bothPageTypes/useClearDataOnLeave";
 export const ListPage = ({ selectors, actions, emptyQuerytext, children }) => {
   const status = useSelector(selectors.selectStatus);
   const results = useSelector(selectors.selectResults);
-  const resultsEmpty = useSelector(selectors.selectResultsEmpty);
   const pagination = useSelector(selectors.selectPagination);
   const query = useSelector(selectors.selectQuery);
+  const resultsEmpty = useSelector(selectors.selectResultsEmpty);
 
-  useFetchDataOnLocationSearchChange({ fetchAction: actions.fetch });
+  const isEmpty = status === "success" && resultsEmpty;
 
-  useClearDataOnLeave({ clearAction: actions.clear });
+  useFetchDataOnLocationSearchChange({
+    fetchAction: actions.fetch,
+  });
+
+  useClearDataOnLeave({
+    clearAction: actions.clear,
+  });
 
   useGoToFirstPageWhenResultsEmpty({
     status,
     results,
-    page: pagination?.page,
+    page: pagination?.page ?? 1,
   });
 
   return (
     <Page
       title={
         query?.trim() ? (
-          resultsEmpty ? (
+          isEmpty ? (
             <>
-              Sorry, tehre are no results for <q>{query}</q>
+              Sorry, there are no results for <q>{query}</q>
             </>
           ) : (
             <>
@@ -45,7 +51,7 @@ export const ListPage = ({ selectors, actions, emptyQuerytext, children }) => {
       status={status}
     >
       <Container>
-        {resultsEmpty ? (
+        {isEmpty ? (
           <NoResults />
         ) : (
           <>
