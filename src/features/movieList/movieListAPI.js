@@ -1,18 +1,7 @@
-import { fetchFromAPI } from "../../common/bothPageTypes/TMDb/fetchfromAPI";
+import { fetchFromAPI } from "../../common/bothPageTypes/TMDb/fetchFromAPI";
 
-export const getPopularMovies = ({ page }) =>
-  fetchFromAPI({
-    path: "/movie/popular",
-    parameters: {
-      page,
-    },
-  });
+const fetchMovies = (path, params) => fetchFromAPI({ path, parameters: params });
 
-export const searchMovies = ({ query, page }) =>
-  fetchFromAPI({
-    path: "/search/movie",
-    parameters: {
-      page,
-      query,
-    },
-  });
+export const getPopularMovies = ({ page }) => fetchMovies("/movie/popular", { page });
+export const searchMovies = ({ query, page }) => fetchMovies("/search/movie", { query, page });
+
