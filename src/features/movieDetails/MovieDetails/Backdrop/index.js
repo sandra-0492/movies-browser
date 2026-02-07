@@ -14,7 +14,7 @@ export const Backdrop = () => {
     <Wrapper>
       <Container>
         <Image
-          url={getImageUrl({
+          $url={getImageUrl({
             path: movie.backdrop_path,
             size: "big",
           })}
