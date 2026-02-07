@@ -12,25 +12,20 @@ export const Movies = ({ movies, showJob, showCharacter }) => {
   const genresStatus = useSelector(selectGenresStatus);
 
   return (
-    <TileList lessItems>
+    <TileList $lessItems>
       {movies.map((movie) => (
-        <TileListLink
-          key={`${movie.id}-${movie.job}-${movie.character}`}
-          to={toMovieDetails(movie.id)}
-        >
+        <TileListLink key={movie.id} to={toMovieDetails(movie.id)}>
           <Tile
             stretchVertically
             twoColumnsOnMobile
             title={movie.title}
-            small
-            image={getImageUrl({
-              path: movie.poster_path,
-              size: "medium",
-            })}
+            $small
+            image={getImageUrl({ path: movie.poster_path, size: "medium" }) || moviePlaceholder}
             imagePlaceholder={moviePlaceholder}
             tags={
-              genresStatus === "success" &&
-              movie.genre_id?.map((id) => genres[id])
+              genresStatus === "success"
+                ? movie.genre_ids?.map((id) => genres[id]) || []
+                : []
             }
             vote={{
               average: movie.vote_average,
@@ -39,9 +34,8 @@ export const Movies = ({ movies, showJob, showCharacter }) => {
             subtitle={
               showJob || showCharacter ? (
                 <>
-                  {shwoJob ? movie.job : movie.character}
-                  {movie.release_data &&
-                    ` (${getYearFromDate(movie.release_date)})`}
+                  {showJob ? movie.job : movie.character}
+                  {movie.release_date && ` (${getYearFromDate(movie.release_date)})`}
                 </>
               ) : (
                 getYearFromDate(movie.release_date)
@@ -53,3 +47,4 @@ export const Movies = ({ movies, showJob, showCharacter }) => {
     </TileList>
   );
 };
+
