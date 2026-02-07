@@ -7,12 +7,12 @@ const tagsGapMobile = 8;
 export const Wrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  margin: ${24 - tagsGap}px -${tagsGap / 2}px 0;
+  margin: 8px -${tagsGap / 2}px 0;
   list-style: none;
   padding: 0;
 
-  ${({ small }) =>
-    small &&
+  ${({ $small }) =>
+    $small &&
     css`
       margin: 0 -${smallTagsGap / 2}px;
     `}
@@ -29,8 +29,8 @@ export const Item = styled.li`
   background: ${({ theme }) => theme.colors.mystic};
   border-radius: 5px;
 
-  ${({ small }) =>
-    small &&
+  ${({ $small }) =>
+    $small &&
     css`
       margin: ${smallTagsGap}px ${smallTagsGap / 2}px;
     `}
