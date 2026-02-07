@@ -1,9 +1,9 @@
-const BASE_URL = "https://api.themoviedb.org/3";
+const BASE_URL = "https://image.tmdb.org/t/p";
 
-const size = {
+const imageSizes = {
   medium: "w342",
   big: "w1280",
 };
 
-export const getImageUrl = ({ path, size }) =>
-  path && `${BASE_URL}${sizes[size]}${path}`;
+export const getImageUrl = ({ path, size = "medium" }) =>
+  path ? `${BASE_URL}/${imageSizes[size]}${path}` : null;
