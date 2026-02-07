@@ -6,9 +6,9 @@ export function* listSaga({ actions, search, getPopular }) {
     yield delay(demoDelay);
 
     try {
-      const response = yield query?.trim()
-        ? call(search, { page, query })
-        : call(getPopular, { pae });
+      const response = query?.trim()
+        ? yield call(search, { page, query })
+        : yield call(getPopular, { page });
 
       yield put(
         actions.fetchSuccess({
@@ -18,7 +18,7 @@ export function* listSaga({ actions, search, getPopular }) {
             totalPages: response.total_pages,
             totalResults: response.total_results,
           },
-        }),
+        })
       );
     } catch (error) {
       yield put(actions.fetchError());

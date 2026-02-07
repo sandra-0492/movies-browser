@@ -2,6 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   status: "initial",
+  results: [],
+  pagination: null,
+  query: "",
 };
 
 export const createListSlice = ({ name }) => {
@@ -9,19 +12,22 @@ export const createListSlice = ({ name }) => {
     name,
     initialState,
     reducers: {
-      fetchError: () => ({
-        status: "error",
-      }),
+      fetchError: (state) => {
+        state.status = "error";
+      },
+
       fetchSuccess: (state, { payload: { results, pagination } }) => {
         state.status = "success";
         state.results = results;
         state.pagination = pagination;
       },
-      fetch: (_, { payload: { query } }) => ({
-        status: "loading",
-        query,
-      }),
-      clear: () => initialState,
+
+      fetch: (state, { payload: { query } }) => {
+        state.status = "loading";
+        state.query = query;
+      },
+
+      clear: () => ({ ...initialState }),
     },
   });
 
@@ -35,7 +41,8 @@ export const createListSlice = ({ name }) => {
       selectStatus: (state) => state[name].status,
       selectQuery: (state) => state[name].query,
       selectPagination: (state) => state[name].pagination,
-      selectResultsEmpty: (state) => selectResults(state)?.length === 0,
+      selectResultsEmpty: (state) =>
+        (selectResults(state) ?? []).length === 0,
     },
   };
 };
