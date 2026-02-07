@@ -4,16 +4,23 @@ import { useLocation } from "react-router-dom";
 
 export function useFetchDataOnLocationSearchChange({ fetchAction }) {
   const dispatch = useDispatch();
-  const location = useLocation();
+  const { search } = useLocation();
 
   useEffect(() => {
-    const urlSearchParams = new urlSearchParams(location.search);
+    if (!fetchAction) return;
+
+    const urlSearchParams = new URLSearchParams(search);
+
+    const query = urlSearchParams.get("query") || "";
+
+    const pageParam = Number(urlSearchParams.get("page"));
+    const page = pageParam > 0 ? pageParam : 1;
 
     dispatch(
       fetchAction({
-        query: urlSearchParams.get("query"),
-        page: urlSearchParams.get("page"),
-      }),
+        query,
+        page,
+      })
     );
-  }, [dispatch, fetchAction, location.search]);
+  }, [dispatch, fetchAction, search]);
 }
