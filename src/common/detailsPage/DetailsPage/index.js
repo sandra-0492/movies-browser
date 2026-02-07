@@ -10,13 +10,14 @@ export const DetailsPage = ({
   clearAction,
   children,
 }) => {
-  const status = useSelector(statusSelector);
-
   const dispatch = useDispatch();
+  const status = useSelector(statusSelector);
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(fetchAction(id));
+    if (id) {
+      dispatch(fetchAction(id));
+    }
   }, [dispatch, id, fetchAction]);
 
   useClearDataOnLeave({ clearAction });
