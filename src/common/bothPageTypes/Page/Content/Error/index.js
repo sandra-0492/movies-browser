@@ -3,7 +3,7 @@ import { StyledLink, Header, Icon, Paragraph, Wrapper } from "./styled";
 export const Error = () => (
   <Wrapper>
     <Icon />
-    <Header>Ooops! Something went wrong</Header>
+    <Header>Oops! Something went wrong</Header>
     <Paragraph>
       Please check your network connection
       <br />

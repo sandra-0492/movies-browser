@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
     margin-top: 50px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileVerticalMax}px) {
-    margin-top: 24x;
+    margin-top: 24px;
     grid-gap: 16px;
   }
 `;
