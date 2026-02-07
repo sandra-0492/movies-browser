@@ -1,24 +1,24 @@
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.dl`
-  font: 18px;
+  font-size: 18px;
   margin: 24px 0 0 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin-top: 0;
-    font-size: 12p;
+    font-size: 12px;
   }
 `;
 
 export const Row = styled.div`
   margin: 8px 0 0 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin-top: 8px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     margin-top: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin-top: 8px;
   }
 `;
 
@@ -35,8 +35,8 @@ export const Key = styled.dt`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin-bottom: 4px;
 
-    ${({ hideOnMobile }) =>
-      hideOnMobile &&
+    ${({ hideKeysOnMobile }) =>
+      hideKeysOnMobile &&
       css`
         display: none;
       `}
