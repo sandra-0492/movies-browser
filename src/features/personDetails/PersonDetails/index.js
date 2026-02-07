@@ -10,6 +10,10 @@ import personPlaceholder from "../../../common/bothPageTypes/images/personPlaceh
 export function PersonDetails() {
   const person = useSelector(selectors.selectDetails);
 
+  if (!person) {
+    return null;
+  }
+
   const personMetaData = {
     "Date of birth": person.birthday,
     "Place of birth": person.place_of_birth,
@@ -24,17 +28,14 @@ export function PersonDetails() {
           size: "medium",
         })}
         imagePlaceholder={personPlaceholder}
-        title={`${person.name} (${person.known_for_department})`}
+        title={
+          person.known_for_department
+            ? `${person.name} (${person.known_for_department})`
+            : person.name
+        }
         metaData={personMetaData}
         description={person.biography}
       />
-
-      {!!person.crew?.length && (
-        <>
-          <Header as="h2">Movies - crew ({person.crew.length})</Header>
-          <Movies movies={person.crew} showJob />
-        </>
-      )}
 
       {!!person.cast?.length && (
         <>
@@ -42,6 +43,14 @@ export function PersonDetails() {
           <Movies movies={person.cast} showCharacter />
         </>
       )}
+
+      {!!person.crew?.length && (
+        <>
+          <Header as="h2">Movies - crew ({person.crew.length})</Header>
+          <Movies movies={person.crew} showJob />
+        </>
+      )}
     </Container>
   );
 }
+
