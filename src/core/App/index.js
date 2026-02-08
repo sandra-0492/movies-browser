@@ -43,7 +43,6 @@ function App() {
           element={<MovieListPage />}
         />
 
-        {/* fallback */}
         <Route
           path="*"
           element={<Navigate to={toMovies()} replace />}
