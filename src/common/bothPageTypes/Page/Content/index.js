@@ -13,7 +13,7 @@ export const Content = ({ status, children }) => {
       return <>{children}</>;
 
     case "initial":
-      return null; // brak renderowania przed rozpoczęciem ładowania
+      return null;
 
     default:
       throw new Error(`Content received incorrect status: ${status}`);
