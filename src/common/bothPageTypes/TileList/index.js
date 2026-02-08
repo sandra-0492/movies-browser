@@ -25,8 +25,10 @@ export const TileList = styled.div`
 `;
 
 export const TileListLink = styled(Link)`
-  display: grid;
+  display: flex; 
+  flex-direction: column; 
   align-items: stretch;
+  min-width: 205px;
   transition: transform 0.3s;
   will-change: transform;
 
@@ -34,3 +36,4 @@ export const TileListLink = styled(Link)`
     transform: scale(1.03);
   }
 `;
+
