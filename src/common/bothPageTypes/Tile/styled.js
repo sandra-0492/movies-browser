@@ -7,7 +7,7 @@ export const Wrapper = styled.article`
   display: grid;
   grid-template-columns: 312px 1fr;
   grid-template-areas: "picture meta" "picture description";
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto;
   align-content: start;
   grid-gap: 0 40px;
   border-radius: 5px;
@@ -17,6 +17,7 @@ export const Wrapper = styled.article`
     css`
       align-items: start;
       margin-top: 56px;
+
       @media (max-width: ${({ theme }) =>
           theme.breakpoints.tabletVerticalMax}px) {
         grid-template-columns: 260px 1fr;
@@ -35,8 +36,8 @@ export const Wrapper = styled.article`
   ${({ $small }) =>
     $small &&
     css`
-      grid-template-areas: "picture" "meta";
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       padding: 16px;
       grid-gap: 16px;
 
@@ -64,9 +65,8 @@ export const Wrapper = styled.article`
     `}
 `;
 
-
 export const Image = styled.div`
-  padding-top: calc(100% * 632 / 421);
+  aspect-ratio: 2 / 3;
   background-image: url(${({ $url }) => $url});
   background-size: cover;
   background-position: center;
@@ -81,7 +81,6 @@ export const Image = styled.div`
       background-repeat: no-repeat;
     `}
 `;
-
 
 export const Title = styled.header`
   font-weight: 600;
@@ -160,7 +159,7 @@ export const ContentWrapper = styled.div`
   ${({ $stretchVertically }) =>
     $stretchVertically &&
     css`
-      align-content: stretch;
+      align-content: start;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         align-content: start;
