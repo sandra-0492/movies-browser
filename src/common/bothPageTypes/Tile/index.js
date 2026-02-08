@@ -51,7 +51,7 @@ export const Tile = ({
         <Tags tags={tags} small={small} />
       </div>
 
-      <Vote small={small} vote={vote} />
+      <Vote $small={small} vote={vote} />
     </ContentWrapper>
 
     {description?.trim() && <Description>{description}</Description>}
