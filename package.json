@@ -1,6 +1,7 @@
 {
   "name": "movies-browser",
   "version": "0.1.0",
+  "homepage": "https://sandra-0492.github.io/movies-browser",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
