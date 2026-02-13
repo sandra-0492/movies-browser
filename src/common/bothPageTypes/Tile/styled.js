@@ -39,7 +39,11 @@ export const Wrapper = styled.article`
       display: flex;
       flex-direction: column;
       padding: 16px;
-      grid-gap: 16px;
+      gap: 16px;
+
+      grid-template-columns: none;
+      grid-template-areas: none;
+      grid-template-rows: none;
 
       @media (max-width: ${({ theme }) =>
           theme.breakpoints.mobileVerticalMax}px) {
@@ -152,9 +156,11 @@ export const Description = styled.p`
 `;
 
 export const ContentWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  align-content: start;
+  grid-area: meta;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
 
   ${({ $stretchVertically }) =>
     $stretchVertically &&

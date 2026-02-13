@@ -48,7 +48,7 @@ export const Tile = ({
           hideMetaDataKeysOnMobile={hideMetaDataKeysOnMobile}
         />
 
-        <Tags tags={tags} small={small} />
+        <Tags tags={tags} $small={small} />
       </div>
 
       <Vote $small={small} vote={vote} />
