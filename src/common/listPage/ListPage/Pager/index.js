@@ -27,7 +27,6 @@ export const Pager = ({ page, totalPages }) => {
       >
         <Arrows>
           <StyledArrow $left />
-          <StyledArrow $left />
         </Arrows>
         <LinkText>First</LinkText>
       </Button>
@@ -62,7 +61,6 @@ export const Pager = ({ page, totalPages }) => {
       >
         <LinkText>Last</LinkText>
         <Arrows>
-          <StyledArrow />
           <StyledArrow />
         </Arrows>
       </Button>

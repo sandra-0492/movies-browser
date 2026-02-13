@@ -54,15 +54,19 @@ export const Arrows = styled.span`
 `;
 
 export const StyledArrow = styled(Arrow)`
+  display: block;
   fill: currentColor;
   margin: 0 ${arrowsGap / 2}px;
   color: ${({ theme }) => theme.colors.sceniceBlue};
-  width: auto;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  transform: rotate(180deg);
 
   ${({ $left }) =>
     $left &&
     css`
-      transform: rotate(180deg);
+      transform: none;
     `}
 
   button:disabled & {
@@ -70,9 +74,11 @@ export const StyledArrow = styled(Arrow)`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileVerticalMax}px) {
+    width: 8px;
     height: 8px;
   }
 `;
+
 
 export const LinkText = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
