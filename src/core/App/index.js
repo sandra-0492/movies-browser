@@ -13,6 +13,8 @@ import {
 } from "../../common/routes";
 import { TopBar } from "./TopBar";
 import { fetchGenres } from "../../common/bothPageTypes/genres/genresSlice";
+import { Container } from "../../common/bothPageTypes/Container";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -23,32 +25,34 @@ function App() {
 
   return (
     <HashRouter>
-      <TopBar />
+  <TopBar />
 
-      <Routes>
-        <Route
-          path={toPersonDetails(":id")}
-          element={<PersonDetailsPage />}
-        />
-        <Route
-          path={toPeople()}
-          element={<PersonListPage />}
-        />
-        <Route
-          path={toMovieDetails(":id")}
-          element={<MovieDetailsPage />}
-        />
-        <Route
-          path={toMovies()}
-          element={<MovieListPage />}
-        />
+  <Container>
+    <Routes>
+      <Route
+        path={toPersonDetails(":id")}
+        element={<PersonDetailsPage />}
+      />
+      <Route
+        path={toPeople()}
+        element={<PersonListPage />}
+      />
+      <Route
+        path={toMovieDetails(":id")}
+        element={<MovieDetailsPage />}
+      />
+      <Route
+        path={toMovies()}
+        element={<MovieListPage />}
+      />
+      <Route
+        path="*"
+        element={<Navigate to={toMovies()} replace />}
+      />
+    </Routes>
+  </Container>
+</HashRouter>
 
-        <Route
-          path="*"
-          element={<Navigate to={toMovies()} replace />}
-        />
-      </Routes>
-    </HashRouter>
   );
 }
 
