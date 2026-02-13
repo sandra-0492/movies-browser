@@ -6,6 +6,8 @@ export const TileList = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
   gap: 16px;
   margin-top: 32px;
+  grid-auto-rows: auto;
+  align-items: start;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileVerticalMax}px) {
     grid-template-columns: repeat(2, 1fr);
@@ -25,10 +27,9 @@ export const TileList = styled.div`
 `;
 
 export const TileListLink = styled(Link)`
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   align-items: stretch;
-  min-width: 205px;
   transition: transform 0.3s;
   will-change: transform;
 
@@ -36,4 +37,3 @@ export const TileListLink = styled(Link)`
     transform: scale(1.03);
   }
 `;
-
