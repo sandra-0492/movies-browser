@@ -19,7 +19,7 @@ export const Movies = ({ movies, showJob, showCharacter }) => {
             stretchVertically
             twoColumnsOnMobile
             title={movie.title}
-            $small
+            small
             image={getImageUrl({ path: movie.poster_path, size: "medium" }) || moviePlaceholder}
             imagePlaceholder={moviePlaceholder}
             tags={
