@@ -4,11 +4,15 @@ import { ReactComponent as Logo } from "./logo.svg";
 
 export const Wrapper = styled.div`
   color: ${({ theme }) => theme.colors.white};
+  width: 100%;
   background: ${({ theme }) => theme.colors.black};
   line-height: 1;
 `;
 
 export const Grid = styled.div`
+  max-width: 1368px; 
+  margin: 0 auto;
+  width: 100%;
   display: grid;
   grid-template-columns: auto 1fr;
   justify-items: end;

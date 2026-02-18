@@ -1,4 +1,3 @@
-import { Container } from "../../../common/bothPageTypes/Container";
 import { toMovies, toPeople } from "../../../common/routes";
 import { Search } from "./Search";
 import {
@@ -15,28 +14,26 @@ import {
 
 export const TopBar = () => (
   <Wrapper>
-    <Container>
-      <Grid>
-        <Main>
-          <LogoLink to="/">
-            <LogoImage />
-            <LogoText>Movies Browser</LogoText>
-          </LogoLink>
+    <Grid>
+      <Main>
+        <LogoLink to="/">
+          <LogoImage />
+          <LogoText>Movies Browser</LogoText>
+        </LogoLink>
 
-          <nav>
-            <Links>
-              <LinkItem>
-                <StyledLink to={toMovies()}>Movies</StyledLink>
-              </LinkItem>
-              <LinkItem>
-                <StyledLink to={toPeople()}>People</StyledLink>
-              </LinkItem>
-            </Links>
-          </nav>
-        </Main>
+        <nav>
+          <Links>
+            <LinkItem>
+              <StyledLink to={toMovies()}>Movies</StyledLink>
+            </LinkItem>
+            <LinkItem>
+              <StyledLink to={toPeople()}>People</StyledLink>
+            </LinkItem>
+          </Links>
+        </nav>
+      </Main>
 
-        <Search />
-      </Grid>
-    </Container>
+      <Search />
+    </Grid>
   </Wrapper>
 );
