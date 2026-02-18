@@ -16,15 +16,15 @@ export const People = ({ people, showCharacter, showJob, prefix }) => {
           to={toPersonDetails(person.id)}
         >
           <Tile
-            $title={person.name}
-            $small
-            $center
-            $image={
+            title={person.name}
+            small
+            center
+            image={
               getImageUrl({ path: person.profile_path, size: "medium" }) ||
               personPlaceholder
             }
-            $imagePlaceholder={personPlaceholder}
-            $subtitle={
+            imagePlaceholder={personPlaceholder}
+            subtitle={
               showJob ? person.job : showCharacter ? person.character : ""
             }
           />
