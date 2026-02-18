@@ -1,9 +1,8 @@
 import { useSelector } from "react-redux";
-import { Container } from "../../../../common/bothPageTypes/Container";
 import { Vote } from "../../../../common/bothPageTypes/Vote";
 import { getImageUrl } from "../../../../common/bothPageTypes/TMDb/getImageUrl";
 import { selectors } from "../../movieDetailsSlice";
-import { Image, Vignette, Title, Wrapper } from "./styled";
+import { Image, Vignette, Title, Wrapper, Content } from "./styled";
 
 export const Backdrop = () => {
   const movie = useSelector(selectors.selectDetails);
@@ -12,14 +11,14 @@ export const Backdrop = () => {
 
   return (
     <Wrapper>
-      <Container>
-        <Image
-          $url={getImageUrl({
-            path: movie.backdrop_path,
-            size: "big",
-          })}
-        >
-          <Vignette>
+      <Image
+        $url={getImageUrl({
+          path: movie.backdrop_path,
+          size: "big",
+        })}
+      >
+        <Vignette>
+          <Content>
             <Title>{movie.title || ""}</Title>
             <Vote
               vote={{
@@ -28,9 +27,9 @@ export const Backdrop = () => {
               }}
               backdrop
             />
-          </Vignette>
-        </Image>
-      </Container>
+          </Content>
+        </Vignette>
+      </Image>
     </Wrapper>
   );
 };

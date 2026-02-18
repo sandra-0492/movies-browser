@@ -2,16 +2,26 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.black};
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 `;
 
+export const Content = styled.div`
+  max-width: 1368px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 16px;
+`;
+
+
 export const Image = styled.div`
-  background-image: url("${({ url }) => url}");
-  height: 770px;
-  min-height: 400px;
-  max-height: 80vh;
+  width: 100%;
+  background-image: url(${({ $url }) => $url});
   background-size: cover;
   background-position: center;
-  margin-bottom: 64px;
+  aspect-ratio: 16 / 7;
+  min-height: 400px;
+  max-height: 80vh;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptopMax}px) {
     height: 55vw;
