@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.colors.black};
         overflow-wrap: anywhere;
         padding-bottom: 100px;
+        margin: 0;
 
         @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
             padding-bottom: 32px;
