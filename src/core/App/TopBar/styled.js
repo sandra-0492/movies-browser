@@ -3,22 +3,25 @@ import styled from "styled-components";
 import { ReactComponent as Logo } from "./logo.svg";
 
 export const Wrapper = styled.div`
+  width: 100vw;
+  height: 94px;
+  margin-left: calc(50% - 50vw);
   color: ${({ theme }) => theme.colors.white};
-  width: 100%;
   background: ${({ theme }) => theme.colors.black};
   line-height: 1;
+  display: flex;
+  align-items: center;
 `;
 
 export const Grid = styled.div`
-  max-width: 1368px; 
-  margin: 0 auto;
+  max-width: 1368px;
   width: 100%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: auto 1fr;
-  justify-items: end;
   align-items: center;
-  padding: 24px;
-  grid-gap: 16px;
+  padding: 0 24px;
+  height: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     padding: 24px 12px;
