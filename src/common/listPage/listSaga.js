@@ -15,10 +15,10 @@ export function* listSaga({ actions, search, getPopular }) {
           results: response.results,
           pagination: {
             page: response.page,
-            totalPages: response.total_pages,
+            totalPages: Math.min(response.total_pages, 500),
             totalResults: response.total_results,
           },
-        })
+        }),
       );
     } catch (error) {
       yield put(actions.fetchError());
