@@ -1,40 +1,43 @@
-# Getting Started with Create React App
+# 🎬 Movies Browser
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern movie browsing application powered by TMDb API. Browse popular movies, search by title, view movie details, and explore cast & crew — all with pagination and graceful error handling.
 
-## Available Scripts
+# 🔗 Demo
+[Link to Movies Browser](https://sandra-0492.github.io/movies-browser/#/movies)
 
-In the project directory, you can run:
+![Movies Browser](https://github.com/sandra-0492/movies-browser/blob/main/Animation.gif?raw=true)
 
-### `npm start`
+# 📌 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Popular Movies & People Listings**
+- View a paginated list of popular movies and people.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Search Movies & People**
+- Search movies and people using TMDb search endpoint.
 
-### `npm test`
+**Movie & People Details View**
+- Displays movie and people details.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Responsive Design**
+- Desktop and mobile optimized layout.
 
-### `npm run build`
+**Error & Loading States**
+- Gracefully handles loading and network errors with user-friendly UI.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 🛠 Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- HTML
+- CSS
+- JavaScrpit
+- React
+- React Router
+- Redux Toolkit
+- Redux-Saga
+- TMDb API
+- GitHub Pages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 🙌 Acknowledgements
 
-### `npm run eject`
+This project uses data from TMDb (The Movie Database).
+Special thanks to TMDb for providing extensive movie data.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
