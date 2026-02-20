@@ -9,12 +9,16 @@ export const createDetailsSlice = ({ name }) => {
     name,
     initialState,
     reducers: {
-      fetchError: () => initialState,
+      fetchError: () => ({
+        status: "error",
+      }),
       fetchSuccess: (_, { payload }) => ({
         status: "success",
         details: payload,
       }),
-      fetch: () => ({ status: "loading" }),
+      fetch: () => ({
+        status: "loading",
+      }),
       clear: () => initialState,
     },
   });
@@ -28,3 +32,4 @@ export const createDetailsSlice = ({ name }) => {
     },
   };
 };
+
