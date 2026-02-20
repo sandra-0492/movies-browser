@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
   line-height: 1;
   display: flex;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    height: auto;
+  }
 `;
 
 export const Grid = styled.div`
