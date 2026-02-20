@@ -1,6 +1,6 @@
 # 🎬 Movies Browser
 
-A modern movie browsing application powered by TMDb API. Browse popular movies, search by title, view movie details, and explore cast & crew — all with pagination and graceful error handling.
+A modern movie browsing application powered by TMDb API. Browse popular movies, search by title, view movie details, and explore cast & crew.
 
 # 🔗 Demo
 [Link to Movies Browser](https://sandra-0492.github.io/movies-browser/#/movies)
